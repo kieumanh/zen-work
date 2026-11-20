@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Nhận diện tím mực, biểu tượng vòng hội tụ và hai nếp giấy, tiêu đề Lora và Dancing Script.
+
 ## 0.1.0
 
 - Thêm bộ nhận diện ZenWork và giao diện sáng/tối.

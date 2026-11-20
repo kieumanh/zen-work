@@ -1,6 +1,6 @@
 {
   "name": "zenwork",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
@@ -15,7 +15,9 @@
   "type": "module",
   "dependencies": {
     "@fontsource/be-vietnam-pro": "^5.3.0",
+    "@fontsource/dancing-script": "^5.3.0",
     "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/lora": "^5.3.0",
     "lucide-react": "^1.77.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"

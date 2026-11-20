@@ -1,4 +1,4 @@
-# ZenWork 0.1.0
+# ZenWork 0.1.1
 
 Bản giao diện đầu tiên của ZenWork, một không gian quản lý dự án và bàn giao công việc giữa các AI. Ngôn ngữ giao diện là tiếng Việt. Phiên bản sản phẩm dự kiến là v1.0.
 
