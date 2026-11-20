@@ -12,6 +12,7 @@ import '@fontsource/be-vietnam-pro/700.css'
 import '@fontsource/ibm-plex-mono/500.css'
 import { defaults, download, event, flows, getFile, handoffText, id, initial, key, now, progress, putFile, read, statuses } from './model'
 import type { Conversation, Data, Entry, Flow, Mode, Provider, Route, Status } from './model'
+import {Routing} from './Routing'
 import './styles.css'
 
 const logo = import.meta.env.BASE_URL + 'logo.png'
@@ -304,6 +305,19 @@ function App() {
           </>}
           {route==='projects'&&<>
             <section className="panel"><div className="row spread"><div><h2>{project.name}</h2><p>{project.description || 'Chưa có mô tả.'}</p></div><button className="quiet-btn" onClick={()=>setModal('repo')}><GitBranch size={16}/> Kho mã GitHub</button></div>{project.repo&&<a className="inline-link" href={project.repo} target="_blank" rel="noreferrer">{project.repo} <ExternalLink size={14}/></a>}</section>
+            <Routing key={project.id} project={project} providers={data.providers} commit={(old,next)=>{
+              let applied=false
+              const saved=save(d=>{
+                const current=d.projects.find(p=>p.id===project.id)
+                if (!current || current.run?.id!==old?.id || current.run?.history.length!==old?.history.length) {
+                  setNotice('Lượt điều phối đã thay đổi. Hãy xem lại bước hiện tại.')
+                  return d
+                }
+                applied=true
+                return event({...d,projects:d.projects.map(p=>p.id===project.id?{...p,run:next}:p)},project.id,'Điều phối',next.history[next.history.length-1]||'Bắt đầu: '+next.goal)
+              })
+              return saved && applied
+            }}/>
             <div className="row spread page-controls"><h2>Nhiệm vụ{data.example&&project.id==='zenwork'?' · Có dữ liệu mẫu':''}</h2><div className="row"><button className="quiet-btn" onClick={()=>setBoard(!board)}>{board?'Danh sách':'Kanban'}</button><button className="primary" onClick={()=>setModal('task')}><Plus size={16}/> Nhiệm vụ</button></div></div>
             {board?<div className="kanban">{Object.entries(statuses).map(([k,v])=><section key={k}><h3>{v} <span>{tasks.filter(item=>item.status===k).length}</span></h3>{tasks.filter(item=>item.status===k).map(taskCard)}</section>)}</div>:<div className="task-list">{tasks.length?tasks.map(taskCard):<p className="empty">Chưa có nhiệm vụ.</p>}</div>}
           </>}
