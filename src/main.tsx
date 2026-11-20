@@ -12,7 +12,7 @@ import '@fontsource/be-vietnam-pro/700.css'
 import '@fontsource/ibm-plex-mono/500.css'
 import { defaults, download, event, flows, getFile, handoffText, id, initial, key, now, progress, putFile, read, statuses } from './model'
 import type { Conversation, Data, Entry, Flow, Mode, Provider, Route, Status } from './model'
-import {Routing} from './Routing'
+import {SharedRouting as Routing} from './SharedRouting'
 import './styles.css'
 
 const logo = import.meta.env.BASE_URL + 'logo.png'
@@ -305,7 +305,7 @@ function App() {
           </>}
           {route==='projects'&&<>
             <section className="panel"><div className="row spread"><div><h2>{project.name}</h2><p>{project.description || 'Chưa có mô tả.'}</p></div><button className="quiet-btn" onClick={()=>setModal('repo')}><GitBranch size={16}/> Kho mã GitHub</button></div>{project.repo&&<a className="inline-link" href={project.repo} target="_blank" rel="noreferrer">{project.repo} <ExternalLink size={14}/></a>}</section>
-            <Routing key={project.id} project={project} providers={data.providers} commit={(old,next)=>{
+            <Routing key={project.id+project.repo} project={project} providers={data.providers} commit={(old,next)=>{
               let applied=false
               const saved=save(d=>{
                 const current=d.projects.find(p=>p.id===project.id)
