@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf4fc">
+  <title>Đăng nhập · ZenWork</title>
+  <link rel="icon" href="/logo.png">
+  <link rel="stylesheet" href="/login.css">
+  <script src="/login.js" defer></script>
+</head>
+<body>
+  <main class="login-layout">
+    <section class="welcome">
+      <a class="brand" href="/login"><img src="/logo.png" alt="" width="44" height="44">ZenWork</a>
+      <div class="welcome-copy">
+        <h1>Vào nhịp làm việc<br><em>của bạn.</em></h1>
+        <p>Một nơi để giữ mạch suy nghĩ, theo dõi dự án và làm việc cùng AI.</p>
+      </div>
+      <div class="ripple" aria-hidden="true"></div>
+    </section>
+    <section class="login-form">
+      <h2>Đăng nhập</h2>
+      <p>Tiếp tục vào không gian làm việc ZenWork.</p>
+      <form action="/login" method="post">
+        <p class="error" id="login-error" role="alert" hidden>Email hoặc mật khẩu chưa đúng.</p>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="username" maxlength="254" placeholder="you@example.com" required>
+        <label for="password">Mật khẩu</label>
+        <div class="password">
+          <input id="password" name="password" type="password" autocomplete="current-password" maxlength="256" required>
+          <button type="button" id="toggle" aria-controls="password" aria-pressed="false">Hiện</button>
+        </div>
+        <button class="submit" type="submit">Đăng nhập</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

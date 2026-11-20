@@ -19,3 +19,36 @@ dialog{border:1px solid var(--line);border-radius:15px;padding:0;background:var(
 .brand strong,.page-heading h1,.page h2,.context-heading h2,.dialog-body h2,.hero h1{font-family:Lora,Georgia,serif;font-weight:700}
 .hero{background:#42264f}.hero h1,.hero .hero-label{color:#fbf6ee}.hero p{color:#eadcea}.hero h1{letter-spacing:-.045em}.hero h1 em{font-family:"Dancing Script",cursive;font-weight:700;font-style:normal;letter-spacing:0;font-size:1.08em;line-height:1.12}
 .hero-content img{outline:1px solid #dfc4e566;border-radius:28%}.hero::before{opacity:.8}.context-label h3{font-weight:650}
+
+/* Calm rose and violet surfaces, with stronger gradients on primary actions. */
+:root {
+  --bg: #fcf8fc;
+  --side: #faf2fa;
+  --paper: #fffafd;
+  --line: #e9dce9;
+  --soft: #f6ebf6;
+  --sage: #f1e4f4;
+  --hover: #f8edf7;
+  --zen-gradient: linear-gradient(112deg, #804c82, #62417a);
+  --zen-selected: linear-gradient(110deg, #f9e2ee, #ece1f6);
+}
+:root[data-theme=dark] {
+  --bg: #201824;
+  --side: #251c2a;
+  --paper: #2d2232;
+  --line: #4e3b55;
+  --soft: #3b2b44;
+  --sage: #48334f;
+  --hover: #403048;
+  --zen-selected: linear-gradient(110deg, #523348, #433252);
+}
+.sidebar { background: linear-gradient(160deg, var(--side), var(--paper)); }
+.sidebar nav button.active, .tabs button.selected { background: var(--zen-selected); }
+.hero { background: linear-gradient(130deg, #804c82, #553479 75%, #452852); border-radius: 26px; }
+.hero h1 em { color: #ffdcf1; }
+.composer, .panel, .context-card, .workspace-select { border-radius: 19px; }
+.suggestions button, .icon-btn, .workspace-icon, .chat-title-icon, .suggestion-icon, .sidebar nav button { border-radius: 14px; }
+.primary-btn, .send, .send-btn { background: var(--zen-gradient); }
+.shell svg { stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.logout-form { margin-left: auto; }
+.logout-form button { white-space: nowrap; }
